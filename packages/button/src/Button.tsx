@@ -200,9 +200,10 @@ export function useButton(
     propsActive,
     Text === ButtonText
       ? {
+          ...rest,
           defaultStyle: !propsIn.unstyled,
         }
-      : undefined
+      : rest
   )
   const inner = spacedChildren({
     // a bit arbitrary but scaling to font size is necessary so long as button does

@@ -43,6 +43,15 @@ export const Sandbox = () => {
         </SizableText>
       </Stack>
       <Button
+        backgroundColor={'blue'}
+        color={'red'}
+        hoverStyle={{
+          backgroundColor: 'red',
+        }}
+      >
+        hello world
+      </Button>
+      <Button
         onPress={() => {
           addFont({
             fontFamilyName: 'mySilk',

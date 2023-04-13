@@ -66,21 +66,26 @@ export function wrapChildrenInText(
     )
   }
 
-  for (const child of allChildren) {
+  allChildren.forEach((child, index) => {
     const last = nextChildren[nextChildren.length - 1]
     const isString = typeof child === 'string'
     if (isString) {
+      const newChild = child|| (
+        <TextComponent key={index} {...props} {...textProps}>
+          {child}
+        </TextComponent>
+      )
       if (lastIsString) {
-        last.push(child)
+        last.push(newChild)
       } else {
-        nextChildren.push([child])
+        nextChildren.push([newChild])
       }
     } else {
       concatStringChildren()
       nextChildren.push(child)
     }
     lastIsString = isString
-  }
+  })
   concatStringChildren()
 
   return nextChildren
